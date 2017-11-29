@@ -16,8 +16,33 @@ namespace Analysers
         public Class1()
         {
             // Built-in with correction
-            //dosomething();
+            dosomething();
+
+            ConvertToString(1);
+            ConvertToString("Hello");
+
+            var g = "A58D861A-5924-482A-A9F9-0EFCB4C32294";
+            PrintGUID(g);
         }
+
+        private void PrintGUID(string guid)
+        {
+            Console.WriteLine(guid);
+        }
+
+
+        [System.Obsolete("Don't pass strings to this method")]
+        private string ConvertToString(string value)
+        {
+            return value.ToString();
+        }
+
+        private string ConvertToString(object value)
+        {
+            return value.ToString();
+        }
+
+
 
         // private void Casts()
         //{
@@ -48,6 +73,7 @@ namespace Analysers
         //        cmd.CommandText = "do something";
         //        cmd.Connection = cn;
         //        cmd.ExecuteNonQuery();
+        //        tx.Complete();
         //    }
         //}
 
@@ -63,8 +89,10 @@ namespace Analysers
         //private bool Conditions()
         //{
         //    var alreadyChecked = true;
-        //    return alreadyChecked || Conditions();
+        //    return alreadyChecked || CheckSupplier();
         //}
+
+
 
         //void AMethod()
         //{
@@ -90,7 +118,8 @@ namespace Analysers
 
         //void datetimes()
         //{
-        //    if (DateTime.Now == null)
+        //    DateTime today = DateTime.Now;
+        //    if (today == null)
         //    {
 
         //    }
@@ -140,5 +169,7 @@ namespace Analysers
         //   // var g3 = x.GetAttrGuid(null, "recordGUID");
         //}
 
+
+        private bool CheckSupplier() => false;
     }
 }
